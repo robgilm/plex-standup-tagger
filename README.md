@@ -15,8 +15,9 @@ This tool operates as a long-running service, orchestrating multiple configurabl
     *   **Keyword Pre-filtering (Configurable):** A configurable keyword filter then checks movie titles and summaries. Movies not meeting a specified keyword threshold are immediately rejected, further reducing the load on the AI.
     *   **AI Verification:** Remaining movies are sent to **Ollama (Llama 3)** with a highly specialized prompt to verify if they match the tagger's criteria.
 3.  **Automated Tagging:**
-    *   **Matched:** Applies a positive label (e.g., `standup`, `sappy_christmas`) in Plex metadata.
-    *   **Unmatched:** Applies a negative label (e.g., `verified_not_standup`, `verified_not_sappy_christmas`) to prevent redundant processing in future scans.
+    The script applies specific labels in Plex metadata for seamless integration with Plex features (like collections and smart playlists) and external management tools like Maintainerr.
+    *   **Matched:** Applies a positive label (e.g., `standup`, `sappy_christmas`) for items matching the tagger's criteria. These labels can then be used in Maintainerr rules.
+    *   **Unmatched:** Applies a negative label (e.g., `verified_not_standup`, `verified_not_sappy_christmas`) to prevent redundant processing in future scans and can also be utilized in external tools.
 
 ## ⏰ Smart Scheduling
 
